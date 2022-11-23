@@ -19,6 +19,17 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: [ 'controller.service_arguments' ]
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    _instanceof:
+        App\Promotion\Driver\PromotionCalculatorDriverInterface:
+            tags: [ 'app.promotion_calculator_driver' ]
+            
+    App\Promotion\Calculator\PromotionCalculator:
+        arguments:
+            - !tagged_iterator app.promotion_calculator_driver
