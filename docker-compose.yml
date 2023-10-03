@@ -57,11 +57,12 @@ services:
 ###< doctrine/doctrine-bundle ###
 
 ### AMQP ###
+  # If you wish to change the default username and password of guest / guest
   rabbitmq:
     image: rabbitmq:3-management-alpine
     ports:
-      - 5672:5672
-      - 15672:15672
+      - "5672:5672"
+      - "15672:15672"
     volumes:
       - rabbit-data:/var/lib/rabbitmq
       - rabbit-log:/var/log/rabbitmq
