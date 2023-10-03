@@ -8,6 +8,7 @@ use App\Promotion\Calculator\PromotionCalculator;
 use App\Promotion\Channel\ChannelX;
 use App\Promotion\Channel\ChannelY;
 use App\Promotion\Exception\UnsupportedSalesChannel;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,8 +24,8 @@ class PromotionController
 
         $price = $calculator->calculate($random ? new ChannelX() : new ChannelY(), 100, 20);
 
-        return new Response(
-            '<html><body>'.$price.'</body></html>'
-        );
+        return new JsonResponse([
+            'price' => $price
+        ]);
     }
 }
