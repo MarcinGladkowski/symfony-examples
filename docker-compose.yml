@@ -56,10 +56,23 @@ services:
       - symfony_examples
 ###< doctrine/doctrine-bundle ###
 
+### AMQP ###
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbit-data:/var/lib/rabbitmq
+      - rabbit-log:/var/log/rabbitmq
+### AMQP ###
+
 volumes:
   caddy_data:
   caddy_config:
   db-data:
+  rabbit-data:
+  rabbit-log:
     
 networks:
   symfony_examples:
