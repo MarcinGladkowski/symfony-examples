@@ -66,6 +66,8 @@ services:
     volumes:
       - rabbit-data:/var/lib/rabbitmq
       - rabbit-log:/var/log/rabbitmq
+    networks:
+      - symfony_examples
 ### AMQP ###
 
 volumes:

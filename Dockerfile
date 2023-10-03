@@ -22,6 +22,7 @@ RUN apk add --no-cache \
 		file \
 		gettext \
 		git \
+    	rabbitmq-c-dev \
 	;
 
 RUN set -eux; \
@@ -31,6 +32,7 @@ RUN set -eux; \
 		opcache \
 		zip \
     	pdo_pgsql \
+    	amqp \
     ;
 
 ###> recipes ###

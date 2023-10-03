@@ -8,10 +8,14 @@ framework:
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
             # failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
+            
+            notifications: "%env(MESSENGER_TRANSPORT_DSN)%"
 
         routing:
             # Route your messages to the transports
             # 'App\Message\YourMessage': async
+            # Can select classes by pattern *, Abstract class, Interface, be careful to Emails
+            'App\Message\Notification': notifications
 
 # when@test:
 #    framework:
