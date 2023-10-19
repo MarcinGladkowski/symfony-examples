@@ -1,0 +1,8 @@
+### Normal request
+POST localhost/check_headers
+
+
+### Pre-flight Chrome request
+OPTIONS localhost/check_headers
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Authorization
