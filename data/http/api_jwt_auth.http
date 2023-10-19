@@ -1,0 +1,12 @@
+###
+GET http://localhost/api/check
+
+
+###
+POST http://localhost/api/login_check
+content-type: application/json
+
+{
+    "username": "marcin@marcin.test",
+    "password": "-"
+}
